@@ -10,7 +10,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' assets.calendly.com; connect-src 'self' calendly.com *.calendly.com; style-src 'self' 'unsafe-inline' assets.calendly.com; frame-src 'self' calendly.com *.calendly.com; img-src 'self' data:;"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' assets.calendly.com; connect-src 'self' calendly.com *.calendly.com; style-src 'self' 'unsafe-inline' assets.calendly.com fonts.googleapis.com; font-src fonts.gstatic.com; frame-src 'self' calendly.com *.calendly.com; img-src 'self' data:;"
         }
       ]
     },
