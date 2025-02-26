@@ -39,10 +39,7 @@ export function CalendlyEmbed() {
 
   return (
     <div className="calendly-container">
-      <h3>
-        I'm using calendly to book, let me know if you need another format
-      </h3>
-      <p>
+      <p className="booking-note">
         Please check the info section if you have not booked with me before and
         read the booking info
       </p>

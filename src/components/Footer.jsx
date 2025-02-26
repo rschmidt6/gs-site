@@ -1,11 +1,11 @@
 // src/components/Footer.jsx
-import { FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 export function Footer() {
   return (
     <footer>
       <div className="footer-content">
-        <div className="footer-social-container">
+        <div className="footer-top-row">
           <a
             href="https://instagram.com/gardensportstattoo"
             target="_blank"
@@ -24,10 +24,10 @@ export function Footer() {
           >
             Subscribe to Newsletter
           </button>
+        </div>
 
-          <a href="mailto:youremail@example.com" className="email-link">
-            <FaEnvelope size={20} />
-          </a>
+        <div className="footer-bottom-row">
+          <span className="email-text">garden.t.sports@gmail.com</span>
         </div>
       </div>
     </footer>

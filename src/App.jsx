@@ -18,7 +18,7 @@ function App() {
   // Update the document title when component mounts
   useEffect(() => {
     // Set title
-    document.title = "Garden Sports Tattoo";
+    document.title = "g.s.";
 
     // Set meta tags
     const metaDescription = document.querySelector('meta[name="description"]');

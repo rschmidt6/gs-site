@@ -1,32 +1,34 @@
 // src/components/InfoPage.jsx
-import { FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 export function InfoPage() {
   return (
     <div className="info-page">
       <div className="info-header">
-        <a
-          href="https://instagram.com/gardensportstattoo"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="instagram-link"
-        >
-          <FaInstagram size={24} />
-        </a>
+        <div className="info-header-top">
+          <a
+            href="https://instagram.com/gardensportstattoo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="instagram-link"
+          >
+            <FaInstagram size={24} />
+          </a>
 
-        <button
-          onClick={() =>
-            window.open("https://gardensportstattoo.substack.com", "_blank")
-          }
-          className="subscribe-button"
-        >
-          Subscribe to Newsletter
-        </button>
+          <button
+            onClick={() =>
+              window.open("https://gardensportstattoo.substack.com", "_blank")
+            }
+            className="subscribe-button"
+          >
+            Subscribe to Newsletter
+          </button>
+        </div>
 
-        <a href="mailto:youremail@example.com" className="email-link">
-          <FaEnvelope size={20} />
-        </a>
+        <div className="info-header-bottom">
+          <span className="email-text">garden.t.sports@gmail.com</span>
+        </div>
       </div>
 
       <div className="info-sections">

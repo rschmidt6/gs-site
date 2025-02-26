@@ -2,12 +2,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export function FlashGallery() {
   // Sample flash data - replace with your actual flash designs
   const flashDesigns = [
     { id: 1, src: "/images/IMG_0835.jpg", alt: "Flash Design 1" },
-    { id: 2, src: "/images/IMG_0835.jpg", alt: "Flash Design 2" },
+    { id: 2, src: "/images/flash2.png", alt: "Flash Design 2" },
     { id: 3, src: "/images/IMG_0835.jpg", alt: "Flash Design 3" },
     { id: 4, src: "/images/IMG_0835.jpg", alt: "Flash Design 4" },
     { id: 5, src: "/images/IMG_0835.jpg", alt: "Flash Design 5" },
@@ -16,10 +17,14 @@ export function FlashGallery() {
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const openModal = (image) => {
     setSelectedImage(image);
+    setCurrentImageIndex(
+      flashDesigns.findIndex((design) => design.id === image.id)
+    );
     // Prevent body scrolling when modal is open
     document.body.style.overflow = "hidden";
   };
@@ -28,6 +33,24 @@ export function FlashGallery() {
     setSelectedImage(null);
     // Restore body scrolling
     document.body.style.overflow = "unset";
+  };
+
+  const navigateImages = (direction) => {
+    const newIndex =
+      (currentImageIndex + direction + flashDesigns.length) %
+      flashDesigns.length;
+    setCurrentImageIndex(newIndex);
+    setSelectedImage(flashDesigns[newIndex]);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowLeft") {
+      navigateImages(-1);
+    } else if (e.key === "ArrowRight") {
+      navigateImages(1);
+    } else if (e.key === "Escape") {
+      closeModal();
+    }
   };
 
   // Variants for staggered animation
@@ -84,6 +107,8 @@ export function FlashGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
           >
             <motion.div
               className="modal-content"
@@ -101,6 +126,29 @@ export function FlashGallery() {
                 style={{ maxHeight: isMobile ? "90vh" : "90vh" }}
               />
               <p>{selectedImage.alt}</p>
+
+              <div className="image-navigation">
+                <button
+                  className="nav-button prev-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateImages(-1);
+                  }}
+                  aria-label="Previous image"
+                >
+                  <FaChevronLeft />
+                </button>
+                <button
+                  className="nav-button next-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateImages(1);
+                  }}
+                  aria-label="Next image"
+                >
+                  <FaChevronRight />
+                </button>
+              </div>
             </motion.div>
           </motion.div>
         )}

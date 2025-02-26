@@ -1,27 +1,52 @@
-.calendly-container h3 {
-  font-size: 1.2rem;
-  font-weight: normal;
-  margin-bottom: 0.5rem;
-  color: var(--accent-color);
+/* Image navigation */
+.image-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
 }
 
-.calendly-container p {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-.email-link {
-  color: var(--text-color);
-  opacity: 0.8;
-  transition: opacity var(--transition-speed);
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+  outline: none; /* Removes focus outline */
+  user-select: none; /* Prevents text selection */
 }
 
-.email-link:hover {
-  opacity: 1;
-  color: var(--accent-color);
+.nav-button:hover {
+  background-color: rgba(177, 139, 96, 0.8);
+  transform: scale(1.1);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+}
+.booking-note {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+.email-text {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  cursor: text;
+  user-select: all;
 } /* Complete index.css file - Replace your entire CSS file with this */
 
 :root {
@@ -185,6 +210,7 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .modal-content {
@@ -211,8 +237,8 @@ main {
 
 .close-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: -40px;
+  right: 0;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -224,6 +250,9 @@ main {
   font-size: 1.25rem;
   cursor: pointer;
   z-index: 10;
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+  outline: none; /* Removes focus outline */
+  user-select: none; /* Prevents text selection */
 }
 
 .book-this-button {
@@ -261,12 +290,26 @@ main {
 
 .info-header {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(242, 239, 230, 0.1);
+}
+
+.info-header-top {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.info-header-bottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 .info-sections {
