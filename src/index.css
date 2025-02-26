@@ -1,77 +1,27 @@
-.calendly-fallback {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  min-height: 300px;
+.calendly-container h3 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
 }
 
-.fallback-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  font-weight: 500;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.fallback-link:hover {
-  background-color: #c9a77c;
-  transform: translateY(-2px);
-} /* Image navigation */
-.image-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  width: 100%;
-  max-width: 200px;
-  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
-}
-
-.nav-button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: background-color var(--transition-speed),
-    transform var(--transition-speed);
-  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
-  outline: none; /* Removes focus outline */
-  user-select: none; /* Prevents text selection */
-}
-
-.nav-button:hover {
-  background-color: rgba(177, 139, 96, 0.8);
-  transform: scale(1.1);
-}
-
-.nav-button:active {
-  transform: scale(0.95);
-}
-.booking-note {
+.calendly-container p {
   margin-bottom: 1rem;
   font-size: 0.9rem;
   opacity: 0.8;
-  font-style: italic;
 }
-.email-text {
+.email-link {
   color: var(--text-color);
   opacity: 0.8;
-  font-size: 0.9rem;
-  cursor: text;
-  user-select: all;
+  transition: opacity var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-link:hover {
+  opacity: 1;
+  color: var(--accent-color);
 } /* Complete index.css file - Replace your entire CSS file with this */
 
 :root {
@@ -235,7 +185,6 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .modal-content {
@@ -262,8 +211,8 @@ main {
 
 .close-button {
   position: absolute;
-  top: -40px;
-  right: 0;
+  top: 20px;
+  right: 20px;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -275,9 +224,6 @@ main {
   font-size: 1.25rem;
   cursor: pointer;
   z-index: 10;
-  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
-  outline: none; /* Removes focus outline */
-  user-select: none; /* Prevents text selection */
 }
 
 .book-this-button {
@@ -301,11 +247,12 @@ main {
 /* Calendly container styles */
 .calendly-container {
   padding: 0;
+  height: 700px;
 }
 
 .calendly-inline-widget {
+  height: 650px;
   width: 100%;
-  overflow: hidden;
 }
 
 /* Info page styles */
@@ -315,26 +262,12 @@ main {
 
 .info-header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(242, 239, 230, 0.1);
-}
-
-.info-header-top {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.info-header-bottom {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 0.5rem;
 }
 
 .info-sections {
@@ -480,45 +413,4 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1px;
   }
-}
-
-.calendly-wrapper {
-  width: 100%;
-  min-height: 700px;
-  overflow: hidden;
-}
-
-.calendly-inline-widget {
-  width: 100%;
-  height: 700px;
-}
-
-.calendly-fallback {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  min-height: 300px;
-  border: 1px solid rgba(242, 239, 230, 0.2);
-  border-radius: var(--border-radius);
-  margin-top: 2rem;
-}
-
-.fallback-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  font-weight: 500;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.fallback-link:hover {
-  background-color: #c9a77c;
-  transform: translateY(-2px);
 }
