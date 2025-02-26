@@ -1,23 +1,41 @@
 // src/components/CalendlyEmbed.jsx
-import { InlineWidget } from "react-calendly";
-import { useMemo } from "react";
+import { useEffect, useRef } from "react";
 
 export function CalendlyEmbed() {
-  // Actual Calendly URL
-  const calendlyUrl = "https://calendly.com/garden-t-sports/";
+  // Reference to the container div
+  const calendlyContainerRef = useRef(null);
 
-  // Set up prefilled information (optional)
-  const prefill = useMemo(
-    () => ({
-      email: "",
-      firstName: "",
-      lastName: "",
-      customAnswers: {
-        a1: "Referred from Garden Sports website",
-      },
-    }),
-    []
-  );
+  useEffect(() => {
+    // Load Calendly script dynamically
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Initialize Calendly widget after script loads
+    script.onload = () => {
+      if (calendlyContainerRef.current && window.Calendly) {
+        window.Calendly.initInlineWidget({
+          url: "https://calendly.com/garden-t-sports/?hide_gdpr_banner=1",
+          parentElement: calendlyContainerRef.current,
+          prefill: {
+            customAnswers: {
+              a1: "Referred from Garden Sports website",
+            },
+          },
+          resize: true, // Enable auto-resize to prevent scrollbars
+        });
+      }
+    };
+
+    // Clean up function
+    return () => {
+      // Remove the script when component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <div className="calendly-container">
@@ -28,15 +46,12 @@ export function CalendlyEmbed() {
         Please check the info section if you have not booked with me before and
         read the booking info
       </p>
-      <div className="calendly-inline-widget">
-        <InlineWidget
-          url={calendlyUrl}
-          prefill={prefill}
-          styles={{
-            height: "650px",
-          }}
-        />
-      </div>
+      <div
+        ref={calendlyContainerRef}
+        id="calendly-embed"
+        className="calendly-inline-widget"
+        style={{ minHeight: "650px" }}
+      ></div>
     </div>
   );
 }

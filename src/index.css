@@ -247,12 +247,11 @@ main {
 /* Calendly container styles */
 .calendly-container {
   padding: 0;
-  height: 700px;
 }
 
 .calendly-inline-widget {
-  height: 650px;
   width: 100%;
+  overflow: hidden;
 }
 
 /* Info page styles */
