@@ -247,11 +247,45 @@ main {
 /* Calendly container styles */
 .calendly-container {
   padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.calendly-embed-responsive {
+  position: relative;
+  width: 100%;
+  min-height: 650px; /* Minimum height */
+  height: auto !important; /* Override any inline styles */
+  overflow: visible !important; /* Critical to prevent double scrollbars */
 }
 
 .calendly-inline-widget {
-  width: 100%;
-  overflow: hidden;
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.calendly-inline-widget iframe {
+  width: 100% !important;
+  min-height: 650px;
+  height: 100% !important;
+}
+
+/* Override Calendly's default iframe styles */
+iframe[src*="calendly"] {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 650px !important;
+}
+
+/* Hide scrollbars on the Calendly widget */
+.calendly-inline-widget::-webkit-scrollbar {
+  display: none;
+}
+
+.calendly-inline-widget {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Info page styles */

@@ -1,44 +1,43 @@
 // src/components/CalendlyEmbed.jsx
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import "./CalendlyEmbed.css";
 
 export function CalendlyEmbed() {
-  // Reference to the container div
-  const calendlyContainerRef = useRef(null);
+  const [height, setHeight] = useState(650);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    // Load Calendly script dynamically
+    // Load the Calendly script
+    const head = document.querySelector("head");
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
-    document.body.appendChild(script);
+    head.appendChild(script);
 
-    // Initialize Calendly widget after script loads
-    script.onload = () => {
-      if (calendlyContainerRef.current && window.Calendly) {
-        window.Calendly.initInlineWidget({
-          url: "https://calendly.com/garden-t-sports/?hide_gdpr_banner=1",
-          parentElement: calendlyContainerRef.current,
-          prefill: {
-            customAnswers: {
-              a1: "Referred from Garden Sports website",
-            },
-          },
-          resize: true, // Enable auto-resize to prevent scrollbars
-        });
+    // Setup event listener for Calendly messages
+    const handleCalendlyEvent = (e) => {
+      if (e.data.event && e.data.event.indexOf("calendly") === 0) {
+        // Handle height changes from Calendly
+        if (
+          e.data.event === "calendly:scroll" ||
+          e.data.event === "calendly:resize"
+        ) {
+          if (e.data.data && e.data.data.height) {
+            setHeight(e.data.data.height + 10); // Add a little padding
+          }
+        }
       }
     };
 
-    // Clean up function
+    window.addEventListener("message", handleCalendlyEvent);
+
     return () => {
-      // Remove the script when component unmounts
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
+      window.removeEventListener("message", handleCalendlyEvent);
     };
   }, []);
 
   return (
-    <div className="calendly-container">
+    <div className="calendly-container" ref={containerRef}>
       <h3>
         I'm using calendly to book, let me know if you need another format
       </h3>
@@ -47,10 +46,9 @@ export function CalendlyEmbed() {
         read the booking info
       </p>
       <div
-        ref={calendlyContainerRef}
-        id="calendly-embed"
         className="calendly-inline-widget"
-        style={{ minHeight: "650px" }}
+        data-url="https://calendly.com/garden-t-sports/?hide_gdpr_banner=1"
+        style={{ minWidth: "320px", height: `${height}px` }}
       ></div>
     </div>
   );

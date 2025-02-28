@@ -1,0 +1,48 @@
+.calendly-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  margin-bottom: 30px;
+}
+
+.calendly-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.calendly-inline-widget {
+  position: relative;
+  width: 100%;
+  overflow: hidden !important;
+  margin: 0 auto;
+}
+
+/* Remove fixed heights and scrollbar styles that might be causing issues */
+@media screen and (max-width: 800px) {
+  .calendly-wrapper {
+    overflow: hidden;
+    height: 750px; /* Fixed height on mobile */
+  }
+
+  /* Target Calendly's iframe directly */
+  .calendly-inline-widget iframe {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .calendly-inline-widget {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    min-height: 650px;
+  }
+
+  .calendly-inline-widget::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
