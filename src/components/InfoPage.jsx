@@ -107,7 +107,7 @@ export function InfoPage() {
         <h3>About</h3>
         <div className="about-content">
           <div className="about-image">
-            <img src="public/images/about_pic.png" alt="Artist photo" />
+            <img src="images/about_pic.png" alt="Artist photo" />
           </div>
           <div className="about-text">
             <p>
