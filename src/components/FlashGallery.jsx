@@ -5,15 +5,27 @@ import { useMediaQuery } from "react-responsive";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export function FlashGallery() {
-  // Sample flash data - replace with your actual flash designs
   const flashDesigns = [
-    { id: 1, src: "/images/IMG_0835.jpg", alt: "Flash Design 1" },
-    { id: 2, src: "/images/flash2.png", alt: "Flash Design 2" },
-    { id: 3, src: "/images/IMG_0835.jpg", alt: "Flash Design 3" },
-    { id: 4, src: "/images/IMG_0835.jpg", alt: "Flash Design 4" },
-    { id: 5, src: "/images/IMG_0835.jpg", alt: "Flash Design 5" },
-    { id: 6, src: "/images/IMG_0835.jpg", alt: "Flash Design 6" },
-    // Add more designs as needed
+    { id: 20, src: "/images/flash/flash_20.png", alt: "Flash Design 20" },
+    { id: 19, src: "/images/flash/flash_19.png", alt: "Flash Design 19" },
+    { id: 18, src: "/images/flash/flash_18.png", alt: "Flash Design 18" },
+    { id: 17, src: "/images/flash/flash_17.png", alt: "Flash Design 17" },
+    { id: 16, src: "/images/flash/flash_16.png", alt: "Flash Design 16" },
+    { id: 15, src: "/images/flash/flash_15.png", alt: "Flash Design 15" },
+    { id: 14, src: "/images/flash/flash_14.png", alt: "Flash Design 14" },
+    { id: 13, src: "/images/flash/flash_13.png", alt: "Flash Design 13" },
+    { id: 12, src: "/images/flash/flash_12.png", alt: "Flash Design 12" },
+    { id: 11, src: "/images/flash/flash_11.png", alt: "Flash Design 11" },
+    { id: 10, src: "/images/flash/flash_10.png", alt: "Flash Design 10" },
+    { id: 9, src: "/images/flash/flash_09.png", alt: "Flash Design 9" },
+    { id: 8, src: "/images/flash/flash_08.png", alt: "Flash Design 8" },
+    { id: 7, src: "/images/flash/flash_07.png", alt: "Flash Design 7" },
+    { id: 6, src: "/images/flash/flash_06.png", alt: "Flash Design 6" },
+    { id: 5, src: "/images/flash/flash_05.png", alt: "Flash Design 5" },
+    { id: 4, src: "/images/flash/flash_04.png", alt: "Flash Design 4" },
+    { id: 3, src: "/images/flash/flash_03.png", alt: "Flash Design 3" },
+    { id: 2, src: "/images/flash/flash_02.png", alt: "Flash Design 2" },
+    { id: 1, src: "/images/flash/flash_01.png", alt: "Flash Design 1" },
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);

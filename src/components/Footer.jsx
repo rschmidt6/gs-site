@@ -7,7 +7,7 @@ export function Footer() {
       <div className="footer-content">
         <div className="footer-top-row">
           <a
-            href="https://instagram.com/gardensportstattoo"
+            href="https://instagram.com/garden_sports"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -18,7 +18,7 @@ export function Footer() {
 
           <button
             onClick={() =>
-              window.open("https://gardensportstattoo.substack.com", "_blank")
+              window.open("https://substack.com/@turnipgarden", "_blank")
             }
             className="subscribe-button"
           >
