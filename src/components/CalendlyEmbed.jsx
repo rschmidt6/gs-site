@@ -38,12 +38,14 @@ export function CalendlyEmbed() {
 
   return (
     <div className="calendly-container" ref={containerRef}>
-      <h3>
-        I'm using calendly to book, let me know if you need another format
-      </h3>
-      <p>
-        Please check the info section if you have not booked with me before and
-        read the booking info
+      <p className="calendly-text">
+        If the calendly embed below fails to load here is a
+        <a
+          href="https://calendly.com/garden-t-sports"
+          className="calendly-link"
+        >
+          direct link
+        </a>
       </p>
       <div
         className="calendly-inline-widget"

@@ -18,7 +18,7 @@ export function InfoPage() {
 
           <button
             onClick={() =>
-              window.open("https://substack.com/@turnipgardene", "_blank")
+              window.open("https://substack.com/@turnipgarden", "_blank")
             }
             className="subscribe-button"
           >

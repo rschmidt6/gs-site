@@ -471,3 +471,30 @@ footer {
   width: 100%;
   margin-top: 0.5rem;
 }
+
+.calendly-text {
+  font-style: italic;
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For IE/Edge */
+}
+
+.calendly-link {
+  color: rgba(177, 139, 96, 0.8) !important; /* Override browser default */
+  margin-left: 0.25rem;
+  text-decoration: none; /* Remove underline */
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.calendly-link:hover {
+  color: var(--accent-color) !important;
+  text-decoration: underline; /* Add underline on hover only */
+}
+
+.calendly-link:visited {
+  color: rgba(177, 139, 96, 0.8) !important; /* Override visited color */
+}
