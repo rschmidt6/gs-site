@@ -39,6 +39,12 @@ export function CalendlyEmbed() {
   return (
     <div className="calendly-container" ref={containerRef}>
       <p className="calendly-text">
+        Currently I'm just booking a bit less structured, just send me an email
+        with a simple idea of what you're interested in and I will send you a
+        link to my calendly if everything looks good! Please check out the info
+        tab for more.
+      </p>
+      {/* <p className="calendly-text">
         If the calendly embed below fails to load here is a
         <a
           href="https://calendly.com/garden-t-sports"
@@ -51,7 +57,7 @@ export function CalendlyEmbed() {
         className="calendly-inline-widget"
         data-url="https://calendly.com/garden-t-sports/?hide_gdpr_banner=1"
         style={{ minWidth: "320px", height: `${height}px` }}
-      ></div>
+      ></div> */}
     </div>
   );
 }

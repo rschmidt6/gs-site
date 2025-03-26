@@ -96,10 +96,10 @@ export function InfoPage() {
             If there are no times available you can sign up for my newsletter
             where I will announce when new spots open.
           </p>
-          <p>
+          {/* <p>
             I don't always have a lot of time to tattoo so sometimes there are
             very few spots unfortunately.
-          </p>
+          </p> */}
         </section>
       </div>
 
@@ -112,8 +112,8 @@ export function InfoPage() {
           <div className="about-text">
             <p>
               I got into tattooing around 2019. I've centered my stylistic focus
-              lately on folky designs. I particularly love delft tiles,
-              scrimshaw art, needlework samplers, and alchemical references.
+              lately on folky designs. I love delft tiles, needlework samplers,
+              and alchemical references. I like a handmade feel.
             </p>
             <p>
               I'm new to the PNW, I was in Austin for 7 years, and excited to
